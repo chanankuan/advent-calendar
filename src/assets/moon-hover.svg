@@ -1,0 +1,13 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="OFF">
+<mask id="mask0_223_12263" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="80" height="80">
+<circle id="Ellipse 41" cx="40" cy="40" r="40" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask0_223_12263)">
+<g id="Group 16">
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M53.89 19.7462C54.5909 20.0688 54.2835 21.1281 53.5148 21.1949C44.6411 21.966 38.0726 29.7846 38.8437 38.6583C39.6148 47.5319 47.4334 54.1004 56.307 53.3293C58.0007 53.1822 59.4701 55.2484 58.1297 56.294C54.9627 58.7645 51.0686 60.3779 46.769 60.7515C34.9266 61.7805 24.4922 53.0145 23.4632 41.1721C22.4342 29.3297 31.2002 18.8953 43.0426 17.8663C46.8999 17.5311 50.6079 18.2351 53.89 19.7462Z" fill="#5D75B0"/>
+<circle id="Ellipse 42" cx="40" cy="40" r="38" stroke="#C2CAFF" stroke-width="4"/>
+</g>
+</g>
+</g>
+</svg>

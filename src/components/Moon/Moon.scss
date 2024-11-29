@@ -1,0 +1,53 @@
+.moon-wrapper {
+  position: absolute;
+  left: 550px;
+  top: 80px;
+  width: 200px;
+  height: 200px;
+  z-index: 999;
+
+  .full-moon {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: url("../../assets/moon.svg") no-repeat;
+    background-size: contain;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 2s ease;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  .moon {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: url("../../assets/moon-main.svg") no-repeat;
+    background-size: contain;
+    z-index: 998;
+  }
+
+  .moon-blur {
+    position: fixed;
+    left: -1169px;
+    top: -1764px;
+    width: 4254px;
+    height: 4254px;
+    border-radius: 50%;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(4, 33, 58, 0) 0%,
+      #01000c 55.21%
+    );
+    opacity: 0;
+    transition: opacity 2.8s ease;
+    pointer-events: none;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+}

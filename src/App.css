@@ -1,0 +1,241 @@
+.canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: linear-gradient(
+      173deg,
+      rgba(65, 46, 158, 0.4) 5.05%,
+      rgba(198, 84, 238, 0.4) 50%
+    ),
+    linear-gradient(15deg, #629aff 54.18%, #26173a 89.05%);
+}
+
+/* 3rd plan */
+.mount-1 {
+  position: absolute;
+  left: 0;
+  top: 250px;
+  width: 1034px;
+  height: 555px;
+  background: url("./assets/mount-1.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.mount-2 {
+  position: absolute;
+  right: -50px;
+  top: 320px;
+  width: 736px;
+  height: 451px;
+  background: url("./assets/mount-2.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* 2nd plan */
+
+.snow-1 {
+  position: absolute;
+  left: 217px;
+  bottom: 133px;
+  width: 1211px;
+  height: 136px;
+  background: url("./assets/snow-1.svg");
+  pointer-events: none;
+}
+
+.tree-8 {
+  position: absolute;
+  right: 270px;
+  bottom: 220px;
+  background: url("./assets/tree-8.svg") no-repeat;
+  background-size: contain;
+  width: 84px;
+  height: 167px;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.tree-9 {
+  position: absolute;
+  right: 166px;
+  bottom: 200px;
+  background: url("./assets/tree-9.svg") no-repeat;
+  background-size: contain;
+  width: 120px;
+  height: 230px;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.rock-3 {
+  position: absolute;
+  left: 200px;
+  bottom: 52px;
+  background: url("./assets/rock-3.svg") no-repeat;
+  background-size: contain;
+  width: 637px;
+  height: 180px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.rock-4 {
+  position: absolute;
+  right: -262px;
+  bottom: 92px;
+  background: url("./assets/rock-4.svg") no-repeat;
+  background-size: contain;
+  width: 988px;
+  height: 191px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.elipse {
+  position: absolute;
+  left: -45px;
+  bottom: -86px;
+  width: 2235px;
+  height: 243px;
+  border-radius: 100%;
+  background: linear-gradient(
+    126deg,
+    #c5c3ff 28.92%,
+    rgba(10, 47, 103, 0.47) 72.48%
+  );
+  pointer-events: none;
+}
+
+/* 1st plan */
+
+.rock-1 {
+  position: absolute;
+  left: 0;
+  bottom: -55px;
+  background: url("./assets/rock-1.svg") no-repeat;
+  background-size: contain;
+  width: 744px;
+  height: 330px;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.rock-2 {
+  position: absolute;
+  right: -2px;
+  bottom: 0;
+  background: url("./assets/rock-2.svg") no-repeat;
+  background-size: contain;
+  width: 744px;
+  height: 330px;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.tree-1 {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  background: url("./assets/tree-1.svg") no-repeat;
+  background-size: contain;
+  width: 295px;
+  height: 790px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.tree-2 {
+  position: absolute;
+  left: 165px;
+  bottom: -185px;
+  background: url("./assets/tree-2.svg") no-repeat;
+  background-size: contain;
+  width: 270px;
+  height: 760px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.tree-3 {
+  position: absolute;
+  left: 353px;
+  bottom: -15px;
+  background: url("./assets/tree-3.svg") no-repeat;
+  background-size: contain;
+  width: 180px;
+  height: 340px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.tree-4 {
+  position: absolute;
+  left: 540px;
+  bottom: -25px;
+  background: url("./assets/tree-4.svg") no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 300px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.tree-5 {
+  position: absolute;
+  right: 345px;
+  bottom: 18px;
+  background: url("./assets/tree-5.svg") no-repeat;
+  background-size: contain;
+  width: 179px;
+  height: 334px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.tree-6 {
+  position: absolute;
+  right: -70px;
+  bottom: 77px;
+  background: url("./assets/tree-6.svg") no-repeat;
+  background-size: contain;
+  width: 257px;
+  height: 587px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.tree-7 {
+  position: absolute;
+  left: 157px;
+  bottom: 103px;
+  background: url("./assets/tree-7.svg") no-repeat;
+  background-size: contain;
+  width: 124px;
+  height: 355px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+/* Blur */
+/* .blur {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 4254px;
+  height: 4254px;
+  border-radius: 100%;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(4, 33, 58, 0) 0%,
+    #01000c 100%
+  );
+  pointer-events: none;
+  z-index: 99;
+} */

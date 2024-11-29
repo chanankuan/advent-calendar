@@ -1,0 +1,35 @@
+.dune-wrapper-2 {
+  position: fixed;
+  right: -225px;
+  bottom: 254px;
+  width: 689px;
+  height: 419px;
+  pointer-events: none;
+}
+
+.dune-3 {
+  width: inherit;
+  height: inherit;
+  background: url("../../../assets/village/dune-3.svg") no-repeat;
+  background-size: contain;
+}
+
+.tree-12 {
+  position: absolute;
+  right: 438px;
+  top: 119px;
+  width: 64px;
+  height: 127px;
+  background: url("../../../assets/village/tree-12.svg") no-repeat;
+  z-index: -1;
+}
+
+.tree-13 {
+  position: absolute;
+  right: 310px;
+  top: 35px;
+  width: 51px;
+  height: 101px;
+  background: url("../../../assets/village/tree-13.svg") no-repeat;
+  z-index: -1;
+}

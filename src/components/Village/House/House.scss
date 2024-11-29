@@ -1,0 +1,102 @@
+.house {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.hovered {
+  .window {
+    background-image: url("../../../assets/village/window-light.svg");
+    transform: scale(3.6) translateY(3%);
+  }
+
+  .door {
+    background-image: url("../../../assets/village/door-open.svg");
+    transform: scale(3.7) translateY(17%);
+    pointer-events: none;
+  }
+
+  .window-round {
+    background-image: url("../../../assets/village/round-window-light.svg");
+    width: 118px;
+    height: 118px;
+    transform: translate(-50%, -75%);
+
+    .number {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -60%);
+      font-family: "Lato";
+      font-size: 26px;
+      color: #0c164880;
+    }
+  }
+}
+
+.roof-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  pointer-events: none;
+}
+
+.chimney {
+  position: absolute;
+  width: 23px;
+  height: 35px;
+  background: url("../../../assets/village/chimney.svg") no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+
+.facade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 18px;
+
+  .row {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.window-round {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -53px);
+  background: url("../../../assets/village/round-window-dark.svg") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+
+.number {
+  display: none;
+}
+
+.window {
+  background: url("../../../assets/village/window-dark.svg") no-repeat;
+  background-size: contain;
+  width: 28px;
+  height: 30px;
+  pointer-events: none;
+}
+
+.door-wrapper {
+  width: 30px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.door {
+  background: url("../../../assets/village/door-closed.svg") no-repeat;
+  background-size: contain;
+  width: inherit;
+  height: inherit;
+}

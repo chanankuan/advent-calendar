@@ -1,0 +1,61 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Below the modal dialog */
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 917px;
+  height: 559px;
+  background: url("../../assets/modal/background.svg");
+  border-radius: 10px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -190px;
+    left: 15px;
+    background: url("../../assets/modal/header.svg") no-repeat;
+    background-size: contain;
+    width: 923px;
+    height: 100%;
+  }
+
+  .content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 650px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    font-family: "Brandon Grotesque";
+    color: #3b425b;
+    font-size: 36px;
+    line-height: 140%;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .close-button {
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 63px;
+    height: 63px;
+    background: url("../../assets/modal/close.svg");
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}

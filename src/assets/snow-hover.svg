@@ -1,0 +1,26 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="OFF">
+<mask id="mask0_223_12186" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="80" height="80">
+<circle id="Ellipse 41" cx="40" cy="40" r="40" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask0_223_12186)">
+<g id="Group 16">
+<circle id="Ellipse 47" cx="23.6" cy="25.2001" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 48" cx="34.8" cy="18.8002" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 49" cx="47.6" cy="27.6" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 50" cx="14" cy="41.9999" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 51" cx="9.19998" cy="22.8002" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 52" cx="46" cy="7.6" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 53" cx="70" cy="43.6" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 54" cx="50.8" cy="49.9999" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 55" cx="63.6" cy="30.8002" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 56" cx="34.8" cy="36.3998" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 57" cx="30" cy="51.6" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 58" cx="39.6" cy="65.2001" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 60" cx="14.8" cy="57.9999" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 59" cx="59.6" cy="60.3998" r="3.6" fill="#5D75B0"/>
+<circle id="Ellipse 42" cx="40" cy="40" r="38" stroke="#C2CAFF" stroke-width="4"/>
+</g>
+</g>
+</g>
+</svg>

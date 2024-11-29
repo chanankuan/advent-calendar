@@ -1,0 +1,16 @@
+.blur {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 4254px;
+  height: 4254px;
+  border-radius: 100%;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(4, 33, 58, 0) 0%,
+    #01000c 100%
+  );
+  pointer-events: none;
+  z-index: 99;
+}

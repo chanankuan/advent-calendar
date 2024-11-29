@@ -1,0 +1,16 @@
+<svg width="49" height="179" viewBox="0 0 49 179" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Chemin&#195;&#169;e fum&#195;&#169;e" filter="url(#filter0_f_128_13979)">
+<circle id="Ellipse 18" cx="24.5022" cy="149.908" r="6.6702" fill="#CFD2FE"/>
+<circle id="Ellipse 17" cx="24.5022" cy="132.311" r="9.05493" fill="#CFD2FE"/>
+<circle id="Ellipse 14" cx="24.5022" cy="159.571" r="4.25697" fill="#CFD2FE"/>
+<circle id="Ellipse 15" cx="24.5022" cy="148.644" r="4.25701" fill="#CFD2FE"/>
+<circle id="Ellipse 16" cx="24.502" cy="128.072" r="4.23825" fill="#CFD2FE"/>
+</g>
+<defs>
+<filter id="filter0_f_128_13979" x="-5" y="-15" width="59" height="193.828" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="7.5" result="effect1_foregroundBlur_128_13979"/>
+</filter>
+</defs>
+</svg>

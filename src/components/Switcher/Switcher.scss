@@ -1,0 +1,106 @@
+.switcher {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  z-index: 999;
+  display: flex;
+  gap: 30px;
+}
+
+.switch-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+// Snow controller
+.snow-control {
+  position: relative;
+  width: 80px;
+  height: 80px;
+
+  &:hover {
+    .off {
+      background: url("../../assets/snow-hover.svg");
+    }
+  }
+
+  .off {
+    background: url("../../assets/snow-off.svg");
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  .on {
+    background: url("../../assets/snow-on.svg");
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  .active {
+    opacity: 1;
+  }
+}
+
+// Lights controller
+.lights-control {
+  position: relative;
+  width: 80px;
+  height: 80px;
+
+  &:hover {
+    .off {
+      background: url("../../assets/lights-hover.svg");
+    }
+  }
+
+  .off {
+    background: url("../../assets/lights-off.svg");
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .on {
+    background: url("../../assets/lights-on.svg");
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .active {
+    opacity: 1;
+  }
+}
+
+// Moon controller
+.moon-control {
+  position: relative;
+  width: 80px;
+  height: 80px;
+
+  &:hover {
+    .off {
+      background: url("../../assets/moon-hover.svg");
+    }
+  }
+
+  .off {
+    background: url("../../assets/moon-off.svg");
+    opacity: 0;
+    transition: opacity 2800ms ease;
+  }
+
+  .on {
+    background: url("../../assets/moon-on.svg");
+    opacity: 0;
+    transition: opacity 2800ms ease;
+  }
+
+  .active {
+    opacity: 1;
+  }
+}

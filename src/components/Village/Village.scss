@@ -1,0 +1,578 @@
+.village-block {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  width: 100%;
+  height: 100%;
+}
+
+// House 24
+.house-24 {
+  position: absolute;
+  left: 1122px;
+  bottom: 618px;
+  width: 111px;
+  height: 219px;
+  background-color: #4549b0;
+
+  .roof-wrapper {
+    transform: translate(-50%, -93px);
+    width: 149px;
+    height: 93px;
+  }
+
+  .roof-24 {
+    background: url("../../assets/village/roof-24.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 18
+.house-18 {
+  position: absolute;
+  left: 1005px;
+  bottom: 530px;
+  width: 134px;
+  height: 202px;
+  background-color: #a2b5fc;
+
+  .roof-wrapper {
+    transform: translate(-50%, -50px);
+    width: 181px;
+    height: 65px;
+  }
+
+  .roof-18 {
+    background: url("../../assets/village/roof-18.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+
+  .chimney {
+    left: 40px;
+    bottom: 26px;
+  }
+}
+
+// House 9
+.house-9 {
+  position: absolute;
+  left: 519px;
+  bottom: 510px;
+  width: 158px;
+  height: 158px;
+  background-color: #4549b0;
+
+  .roof-wrapper {
+    transform: translate(-50%, -68px);
+    width: 214px;
+    height: 93px;
+  }
+
+  .roof-9 {
+    background: url("../../assets/village/roof-9.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 20
+.house-20 {
+  position: absolute;
+  left: 793px;
+  bottom: 638px;
+  width: 139px;
+  height: 113px;
+  background-color: #4549b0;
+
+  .roof-wrapper {
+    transform: translate(-50%, -80px);
+    width: 187px;
+    height: 95px;
+  }
+
+  .roof-20 {
+    background: url("../../assets/village/roof-20.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 3
+.house-3 {
+  position: absolute;
+  left: 605px;
+  bottom: 420px;
+  width: 138px;
+  height: 110px;
+  background-color: #d39d8c;
+
+  .roof-wrapper {
+    transform: translate(-50%, -70px);
+    width: 185px;
+    height: 95px;
+  }
+
+  .roof-3 {
+    background: url("../../assets/village/roof-3.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 7
+.house-7 {
+  position: absolute;
+  left: 435px;
+  bottom: 296px;
+  width: 173px;
+  height: 220px;
+  background-color: #a2b5fc;
+
+  .roof-wrapper {
+    transform: translate(-50%, -80px);
+    width: 232px;
+    height: 94px;
+  }
+
+  .roof-7 {
+    background: url("../../assets/village/roof-7.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+
+  .chimney {
+    left: 50px;
+    bottom: 40px;
+  }
+}
+
+// House 8
+.house-8 {
+  position: absolute;
+  left: 883px;
+  bottom: 525px;
+  width: 131px;
+  height: 124px;
+  background-color: #d39d8c;
+
+  .roof-wrapper {
+    transform: translate(-50%, -90px);
+    width: 174px;
+    height: 105px;
+  }
+
+  .roof-8 {
+    background: url("../../assets/village/roof-8.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 14
+.house-14 {
+  position: absolute;
+  left: 740px;
+  bottom: 480px;
+  width: 164px;
+  height: 128px;
+  background-color: #cf5f95;
+
+  .roof-wrapper {
+    transform: translate(-50%, -90px);
+    width: 220px;
+    height: 96px;
+  }
+
+  .roof-14 {
+    background: url("../../assets/village/roof-14.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+
+  .chimney {
+    left: 35px;
+    bottom: 33px;
+  }
+}
+
+// House 4
+.house-4 {
+  position: absolute;
+  left: 1228px;
+  bottom: 560px;
+  width: 164px;
+  height: 128px;
+  background-color: #cf5f95;
+
+  .roof-wrapper {
+    transform: translate(-50%, -90px);
+    width: 220px;
+    height: 96px;
+  }
+
+  .roof-4 {
+    background: url("../../assets/village/roof-4.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+
+  .chimney {
+    transform: scaleX(-1);
+    right: 40px;
+    bottom: 38px;
+  }
+}
+
+// House 19
+.house-19 {
+  position: absolute;
+  left: 543px;
+  bottom: 245px;
+  width: 177px;
+  height: 171px;
+  background-color: #cf5f95;
+
+  .roof-wrapper {
+    transform: translate(-50%, -61px);
+    width: 239px;
+    height: 86px;
+  }
+
+  .roof-19 {
+    background: url("../../assets/village/roof-19.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 16
+.house-16 {
+  position: absolute;
+  left: 1385px;
+  bottom: 520px;
+  width: 93px;
+  height: 168px;
+  background-color: #4549b0;
+
+  .roof-wrapper {
+    transform: translate(-50%, -68px);
+    width: 125px;
+    height: 95px;
+  }
+
+  .roof-16 {
+    background: url("../../assets/village/roof-16.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 5
+.house-5 {
+  position: absolute;
+  left: 1236px;
+  bottom: 415px;
+  width: 183px;
+  height: 120px;
+  background-color: #a2b5fc;
+
+  .roof-wrapper {
+    transform: translate(-50%, -65px);
+    width: 248px;
+    height: 89px;
+  }
+
+  .roof-5 {
+    background: url("../../assets/village/roof-5.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+
+  .chimney {
+    transform: scaleX(-1);
+    right: 50px;
+    bottom: 36px;
+  }
+}
+
+// House 11
+.house-11 {
+  position: absolute;
+  left: 1412px;
+  bottom: 325px;
+  width: 204px;
+  height: 195px;
+  background-color: #d39d8c;
+
+  .roof-wrapper {
+    transform: translate(-50%, -65px);
+    width: 272px;
+    height: 89px;
+  }
+
+  .roof-11 {
+    background: url("../../assets/village/roof-11.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 23
+.house-23 {
+  position: absolute;
+  left: 900px;
+  bottom: 336px;
+  width: 214px;
+  height: 180px;
+  background-color: #4549b0;
+
+  .roof-wrapper {
+    transform: translate(-50%, -70px);
+    width: 289px;
+    height: 89px;
+  }
+
+  .roof-23 {
+    background: url("../../assets/village/roof-23.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 21
+.house-21 {
+  position: absolute;
+  left: 1116px;
+  bottom: 450px;
+  width: 154px;
+  height: 150px;
+  background-color: #d39d8c;
+
+  .roof-wrapper {
+    transform: translate(-50%, -70px);
+    width: 207px;
+    height: 89px;
+  }
+
+  .roof-21 {
+    background: url("../../assets/village/roof-21.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 2
+.house-2 {
+  position: absolute;
+  left: 1059px;
+  bottom: 365px;
+  width: 129px;
+  height: 100px;
+  background-color: #cf5f95;
+
+  .roof-wrapper {
+    transform: translate(-50%, -70px);
+    width: 173px;
+    height: 95px;
+  }
+
+  .roof-2 {
+    background: url("../../assets/village/roof-2.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 6
+.house-6 {
+  position: absolute;
+  left: 797px;
+  bottom: 335px;
+  width: 163px;
+  height: 136px;
+  background-color: #a2b5fc;
+
+  .roof-wrapper {
+    transform: translate(-50%, -80px);
+    width: 219px;
+    height: 99px;
+  }
+
+  .roof-6 {
+    background: url("../../assets/village/roof-6.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+
+  .chimney {
+    transform: scaleX(-1);
+    right: 65px;
+    bottom: 60px;
+  }
+}
+
+// House 17
+.house-17 {
+  position: absolute;
+  left: 721px;
+  bottom: 330px;
+  width: 120px;
+  height: 144px;
+  background-color: #4549b0;
+
+  .roof-wrapper {
+    transform: translate(-50%, -72px);
+    width: 161px;
+    height: 100px;
+  }
+
+  .roof-17 {
+    background: url("../../assets/village/roof-17.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 13
+.house-13 {
+  position: absolute;
+  left: 990px;
+  bottom: 206px;
+  width: 214px;
+  height: 152px;
+  background-color: #a2b5fc;
+
+  .roof-wrapper {
+    transform: translate(-50%, -46px);
+    width: 288px;
+    height: 60px;
+  }
+
+  .roof-13 {
+    background: url("../../assets/village/roof-13.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 10
+.house-10 {
+  position: absolute;
+  left: 1175px;
+  bottom: 215px;
+  width: 173px;
+  height: 220px;
+  background-color: #4549b0;
+
+  .roof-wrapper {
+    transform: translate(-50%, -75px);
+    width: 232px;
+    height: 94px;
+  }
+
+  .roof-10 {
+    background: url("../../assets/village/roof-10.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 22
+.house-22 {
+  position: absolute;
+  left: 1340px;
+  bottom: 232px;
+  width: 130px;
+  height: 166px;
+  background-color: #cf5f95;
+
+  .roof-wrapper {
+    transform: translate(-50%, -90px);
+    width: 175px;
+    height: 93px;
+  }
+
+  .roof-22 {
+    background: url("../../assets/village/roof-22.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+
+  .chimney {
+    transform: scaleX(-1);
+    right: 30px;
+    bottom: 36px;
+  }
+}
+// House 15
+.house-15 {
+  position: absolute;
+  left: 706px;
+  bottom: 180px;
+  width: 283px;
+  height: 145px;
+  background-color: #d39d8c;
+
+  .roof-wrapper {
+    transform: translate(-50%, -65px);
+    width: 379px;
+    height: 90px;
+  }
+
+  .roof-15 {
+    background: url("../../assets/village/roof-15.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 1
+.house-1 {
+  position: absolute;
+  left: 903px;
+  bottom: 175px;
+  width: 141px;
+  height: 149px;
+  background-color: #cf5f95;
+
+  .roof-wrapper {
+    transform: translate(-50%, -58px);
+    width: 189px;
+    height: 77px;
+  }
+
+  .roof-1 {
+    background: url("../../assets/village/roof-1.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+// House 12
+.house-12 {
+  position: absolute;
+  left: 670px;
+  bottom: 210px;
+  width: 118px;
+  height: 140px;
+  background-color: #a2b5fc;
+
+  .roof-wrapper {
+    transform: translate(-50%, -66px);
+    width: 159px;
+    height: 89px;
+  }
+
+  .roof-12 {
+    background: url("../../assets/village/roof-12.svg") no-repeat;
+    width: inherit;
+    height: inherit;
+  }
+
+  .chimney {
+    left: 30px;
+    bottom: 36px;
+  }
+}

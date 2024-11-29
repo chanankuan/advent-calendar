@@ -1,0 +1,12 @@
+.stars-block {
+  position: absolute;
+  left: 50%;
+  top: 90px;
+  transform: translateX(-50%);
+  width: 1589px;
+  height: 276px;
+  background: url("../../assets/stars.svg") no-repeat;
+  background-size: contain;
+  z-index: 999;
+  pointer-events: none;
+}
