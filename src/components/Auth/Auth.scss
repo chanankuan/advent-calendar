@@ -1,53 +1,70 @@
 .auth-backdrop {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  // background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
 
   .form {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 300px;
-    border: 2px solid black;
-    backdrop-filter: blur(5px);
+    border: 2px solid #000; /* Black border */
+    background-color: #fff; /* White background */
     border-radius: 20px;
-    padding: 100px;
+    padding: 50px; /* Adjusted for balance */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
   }
 
   input {
     padding: 10px;
-    color: black;
-    background-color: white;
-    border: none;
+    color: #333; /* Darker text for contrast */
+    background-color: #f9f9f9; /* Light grey background for inputs */
+    border: 1px solid #ccc; /* Light border */
     border-radius: 5px;
     outline: none;
+    transition: box-shadow 200ms ease;
+
+    &:focus {
+      box-shadow: 0 0 5px rgba(65, 46, 158, 0.5); /* Subtle focus highlight */
+    }
   }
 
   button {
     padding: 10px;
-    background-color: rgba(65, 46, 158);
+    background-color: #412e9e; /* Deep purple */
+    color: #fff; /* White text */
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
-    transition: transform 200ms ease;
+    transition: transform 200ms ease, background-color 200ms ease;
 
     &:hover {
       transform: scale(1.05);
+      background-color: #563dc7; /* Slightly lighter purple */
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
   }
 
   .link {
     text-decoration: none;
+    color: #412e9e; /* Purple link color */
     text-align: center;
-    transition: color 100ms ease;
+    font-size: 14px;
+    transition: color 200ms ease;
 
     &:hover {
-      color: #785fac;
+      color: #785fac; /* Slightly lighter purple */
     }
   }
 }

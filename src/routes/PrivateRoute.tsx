@@ -8,7 +8,7 @@ import httpClient from "../httpClient";
 // Set default `withCredentials` to true
 axios.defaults.withCredentials = true;
 
-interface PublicRouteProps {
+interface PrivateRouteProps {
   component: ReactElement;
   redirectTo: string;
 }
@@ -16,7 +16,7 @@ interface PublicRouteProps {
 export function PrivateRoute({
   component: Component,
   redirectTo = "/",
-}: PublicRouteProps) {
+}: PrivateRouteProps) {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 

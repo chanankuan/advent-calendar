@@ -71,7 +71,9 @@ function Auth() {
             onChange={handleOnChange}
             required
           />
-          <button type="submit">Login</button>
+          <button type="submit">
+            {location.pathname === "/login" ? "Login" : "Register"}
+          </button>
 
           {location.pathname === "/login" ? (
             <Link className="link" to="/register">
