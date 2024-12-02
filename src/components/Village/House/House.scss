@@ -4,7 +4,8 @@
   align-items: end;
 }
 
-.hovered {
+.hovered,
+.opened {
   .window {
     background-image: url("../../../assets/village/window-light.svg");
     transform: scale(3.6) translateY(3%);

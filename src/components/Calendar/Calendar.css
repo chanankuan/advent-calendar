@@ -1,0 +1,51 @@
+.canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: linear-gradient(
+      173deg,
+      rgba(65, 46, 158, 0.4) 5.05%,
+      rgba(198, 84, 238, 0.4) 50%
+    ),
+    linear-gradient(15deg, #629aff 54.18%, #26173a 89.05%);
+}
+
+/* 4th plan */
+.fourth-plan {
+  position: absolute;
+  left: 0;
+  bottom: 280px;
+  width: inherit;
+  height: 658px;
+  background: url("../../assets/fourth-plan.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* 2nd plan */
+.second-plan {
+  position: absolute;
+  left: 0;
+  bottom: -82px;
+  width: inherit;
+  height: 527px;
+  background: url("../../assets/second-plan.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* 1st plan */
+.first-plan {
+  position: absolute;
+  left: 0;
+  bottom: -268px;
+  width: inherit;
+  height: inherit;
+  background: url("../../assets/first-plan.svg") no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}

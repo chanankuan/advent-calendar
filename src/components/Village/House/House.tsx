@@ -1,33 +1,36 @@
+import { useState } from "react";
 import "./House.scss";
 
 interface HouseProps {
   houseId: number;
   schema: [number, number]; // [rows, columns]
-  hovered: number | null;
-  onMouseEnter: (n: number) => void;
-  onMouseLeave: () => void;
   onHouseClick: (n: number) => void;
+  isOpened: boolean;
   hasChimney?: boolean;
 }
 
 function House({
   houseId,
   schema,
-  hovered,
-  onMouseEnter,
-  onMouseLeave,
   onHouseClick,
+  isOpened,
   hasChimney = false,
 }: HouseProps) {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const handleMouseEnter = (houseId: number) => setHovered(houseId);
+  const handleMouseLeave = () => setHovered(null);
   const [rows, columns] = schema;
 
   const handleOnClick = (n: number) => onHouseClick(n);
+
+  // console.log("isOpened", isOpened);
 
   return (
     <div
       className={`house house-${houseId} ${
         hovered === houseId ? "hovered" : ""
-      }`}
+      } ${isOpened ? "opened" : ""}`}
     >
       <div className="roof-wrapper">
         <div className={`roof roof-${houseId}`}></div>
@@ -61,8 +64,10 @@ function House({
                   <div
                     key={`door-wrapper-${j}`}
                     className="door-wrapper"
-                    onMouseEnter={() => onMouseEnter(houseId)}
-                    onMouseLeave={onMouseLeave}
+                    onMouseEnter={() => handleMouseEnter(houseId)}
+                    onMouseLeave={handleMouseLeave}
+                    // onMouseEnter={() => onMouseEnter(houseId)}
+                    // onMouseLeave={onMouseLeave}
                     onClick={() => handleOnClick(houseId)}
                   >
                     <div className="door"></div>

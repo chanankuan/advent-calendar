@@ -1,0 +1,125 @@
+/* Backdrop */
+.calendar-backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #d7e5f7 20%, #f3f1ff 80%);
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Form Container */
+form {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* Form Title */
+.form-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #4a4a4a;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+
+/* Title Input */
+form > input[type="text"] {
+  margin-bottom: 16px;
+}
+
+form input[type="text"] {
+  color: #cf8ee3;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+form input[type="text"]:focus {
+  border-color: #629aff;
+  background: #ffffff;
+  box-shadow: 0 0 4px rgba(98, 154, 255, 0.5);
+}
+
+/* Day Input Section */
+form > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+form > div label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+  min-width: 70px;
+}
+
+form > div input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+form > div input:focus {
+  border-color: #cf8ee3;
+  background: #ffffff;
+  box-shadow: 0 0 4px rgba(207, 142, 227, 0.5);
+}
+
+/* Add Scrollbar Styles */
+.calendar-backdrop::-webkit-scrollbar {
+  width: 10px;
+}
+
+.calendar-backdrop::-webkit-scrollbar-thumb {
+  background: #c2c2c2;
+  border-radius: 5px;
+}
+
+.calendar-backdrop::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgba(65, 46, 158);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 15px;
+  transition: transform 200ms ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}

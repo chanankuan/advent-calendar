@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
 import "./Lights.scss";
 
+import lightsDefault from "../../assets/lights-default.svg";
+import lightsMode1 from "../../assets/lights-mode-1.svg";
+import lightsMode2 from "../../assets/lights-mode-2.svg";
+
 interface LightsProps {
   lightsEnabled: boolean;
 }
 
 function Lights({ lightsEnabled }: LightsProps) {
-  const [background, setBackground] = useState<string>(
-    "src/assets/lights-default.svg"
-  );
+  const [background, setBackground] = useState<string>(lightsDefault);
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval> | undefined;
 
     if (lightsEnabled) {
-      const backgrounds = [
-        "src/assets/lights-mode-1.svg",
-        "src/assets/lights-mode-2.svg",
-      ];
+      const backgrounds = [lightsMode1, lightsMode2];
       let index = 0;
 
       // Set the initial background to the first alternate
@@ -29,7 +28,7 @@ function Lights({ lightsEnabled }: LightsProps) {
       }, 1000);
     } else {
       // Reset to the default background when lightsEnabled is false
-      setBackground("src/assets/lights-default.svg");
+      setBackground(lightsDefault);
     }
 
     return () => {

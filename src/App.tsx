@@ -1,81 +1,33 @@
-import { useState } from "react";
-
-import "./App.css";
-import Snowfall from "react-snowfall";
-import Moon from "./components/Moon/Moon";
-import Stars from "./components/Stars/Stars";
-import Village from "./components/Village/Village";
-import Switcher from "./components/Switcher/Switcher";
-import Lights from "./components/Lights/Lights";
-import Clouds from "./components/Clouds/Clouds";
-import Blur from "./components/Blur/Blur";
-import Modal from "./components/Modal/Modal";
+import { Navigate, Route, Routes } from "react-router";
+import Calendar from "./components/Calendar/Calendar";
+import Auth from "./components/Auth/Auth";
+import { PrivateRoute } from "./routes/PrivateRoute";
+import CreateCalendar from "./components/CreateCalendar/CreateCalendar";
 
 function App() {
-  const [snowEnabled, setSnowEnabled] = useState(false);
-  const [lightsEnabled, setLightsEnabled] = useState(false);
-  const [moonEnabled, setMoonEnabled] = useState(false);
-  const [isModalActive, setIsModalActive] = useState(false);
-  const [houseId, setHouseId] = useState<number | null>(null);
-
-  function handleOnHouseClick(id: number) {
-    setHouseId(id);
-    setIsModalActive(true);
-  }
-
-  function handleCloseModal() {
-    setHouseId(null);
-    setIsModalActive(false);
-  }
-
   return (
-    <>
-      <div className="canvas">
-        {/* 4th plan */}
-        <div className="mount-1"></div>
-        <div className="mount-2"></div>
-        <Clouds />
+    <Routes>
+      <Route path="/">
+        <Route index element={<Calendar />} />
+        <Route path="login" element={<Auth />} />
+        <Route path="register" element={<Auth />} />
+        <Route path="advent-calendar">
+          <Route
+            index
+            element={
+              <PrivateRoute
+                component={<CreateCalendar />}
+                redirectTo="/login"
+              />
+            }
+          ></Route>
+          <Route path="/advent-calendar/:access_token" element={<Calendar />} />
+        </Route>
+        <Route path="/not-found" element={<Calendar />} />
+      </Route>
 
-        {/* 3rd plan */}
-        <Village onHouseClick={handleOnHouseClick} />
-        {/* 2nd plan */}
-        <div className="snow-1"></div>
-        <div className="elipse"></div>
-        <div className="rock-3"></div>
-        <div className="rock-4"></div>
-        <div className="tree-8"></div>
-        <div className="tree-9"></div>
-        {/* 1st plan */}
-        <div className="rock-1"></div>
-        <div className="rock-2"></div>
-        <div className="tree-1"></div>
-        <div className="tree-2"></div>
-        <div className="tree-3"></div>
-        <div className="tree-4"></div>
-        <div className="tree-5"></div>
-        <div className="tree-6"></div>
-        <div className="tree-7"></div>
-        <Stars />
-        <Moon moonEnabled={moonEnabled} />
-        <Lights lightsEnabled={lightsEnabled} />
-        <Blur />
-
-        <Switcher
-          snowEnabled={snowEnabled}
-          lightsEnabled={lightsEnabled}
-          moonEnabled={moonEnabled}
-          setSnowEnabled={setSnowEnabled}
-          setLightsEnabled={setLightsEnabled}
-          setMoonEnabled={setMoonEnabled}
-        />
-
-        {snowEnabled && <Snowfall />}
-      </div>
-
-      {isModalActive && (
-        <Modal onCloseModal={handleCloseModal}>House id is {houseId}</Modal>
-      )}
-    </>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }
 
