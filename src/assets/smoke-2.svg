@@ -1,0 +1,16 @@
+<svg width="63" height="164" viewBox="0 0 63 164" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_120_2566)">
+<circle cx="31.5022" cy="102.726" r="11.2637" fill="#CFD2FE"/>
+<circle cx="31.5022" cy="85.1287" r="16.0999" fill="#CFD2FE"/>
+<circle cx="31.5022" cy="52.6726" r="9.05494" fill="#CFD2FE"/>
+<circle cx="31.5021" cy="30.8795" r="3.49475" fill="#CFD2FE"/>
+<circle cx="0.150342" cy="0.150342" r="0.150342" transform="matrix(1 0 0 -1 31.3516 6.63843)" fill="#CFD2FE"/>
+</g>
+<defs>
+<filter id="filter0_f_120_2566" x="0.402287" y="-8.66235" width="62.1998" height="187.662" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="7.5" result="effect1_foregroundBlur_120_2566"/>
+</filter>
+</defs>
+</svg>

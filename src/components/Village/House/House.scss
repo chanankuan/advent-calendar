@@ -101,3 +101,74 @@
   width: inherit;
   height: inherit;
 }
+
+.smoke-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: inherit;
+  height: 120px;
+}
+
+.smoke {
+  position: absolute;
+  left: -10px;
+  bottom: -25px;
+  width: 100px;
+  height: 100px;
+  animation: rise 5s linear infinite;
+  z-index: 999;
+}
+
+.smoke-1 {
+  left: 0;
+  background: url("../../../assets/smoke-1.svg") no-repeat;
+  background-size: contain;
+}
+
+.smoke-2 {
+  left: 0;
+  background: url("../../../assets/smoke-2.svg") no-repeat;
+  background-size: contain;
+}
+
+.smoke-3 {
+  left: 0;
+  background: url("../../../assets/smoke-3.svg") no-repeat;
+  background-size: contain;
+}
+
+.smoke.delay1 {
+  animation-delay: 0s;
+}
+
+.smoke.delay2 {
+  animation-delay: 1s;
+}
+
+.smoke.delay3 {
+  animation-delay: 2s;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-25px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-75px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}

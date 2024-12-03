@@ -24,8 +24,6 @@ function House({
 
   const handleOnClick = (n: number) => onHouseClick(n);
 
-  // console.log("isOpened", isOpened);
-
   return (
     <div
       className={`house house-${houseId} ${
@@ -34,7 +32,15 @@ function House({
     >
       <div className="roof-wrapper">
         <div className={`roof roof-${houseId}`}></div>
-        {hasChimney && <div className="chimney"></div>}
+        {hasChimney && (
+          <div className="chimney">
+            <div className="smoke-container">
+              <div className="smoke smoke-1"></div>
+              <div className="smoke smoke-2 delay1"></div>
+              <div className="smoke smoke-3 delay2"></div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="facade">
         {/* Rows */}
@@ -66,8 +72,6 @@ function House({
                     className="door-wrapper"
                     onMouseEnter={() => handleMouseEnter(houseId)}
                     onMouseLeave={handleMouseLeave}
-                    // onMouseEnter={() => onMouseEnter(houseId)}
-                    // onMouseLeave={onMouseLeave}
                     onClick={() => handleOnClick(houseId)}
                   >
                     <div className="door"></div>

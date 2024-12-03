@@ -119,7 +119,7 @@ function Calendar() {
   }, [BACKEND_URL, params.access_token, navigate]);
 
   return (
-    <>
+    <div className="canvas-backdrop">
       <div className="canvas">
         {/* 4th plan */}
         <div className="fourth-plan"></div>
@@ -152,10 +152,12 @@ function Calendar() {
         {snowEnabled && <Snowfall />}
       </div>
 
+      <div className="canvas-bg"></div>
+
       {isModalActive && (
         <Modal onCloseModal={handleCloseModal}>{activeNote}</Modal>
       )}
-    </>
+    </div>
   );
 }
 
