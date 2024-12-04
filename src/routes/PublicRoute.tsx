@@ -22,7 +22,7 @@ export function PublicRoute({
         setIsAuthorized(true);
         setIsLoading(false);
       } catch {
-        console.log("Unauthorized");
+        setIsAuthorized(false);
       } finally {
         setIsLoading(false);
       }

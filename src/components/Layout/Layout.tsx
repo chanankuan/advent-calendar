@@ -6,8 +6,6 @@ function Layout() {
   const location = useLocation();
   const isAdvent = location.pathname.startsWith("/advent-calendar/");
 
-  console.log(location.pathname);
-
   useEffect(() => {
     if (location.pathname === "/") {
       document.title = "Advent Calendar - Homepage";
