@@ -1,6 +1,7 @@
 import "./Auth.scss";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
 import Calendar from "../Calendar/Calendar";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import axios from "axios";
@@ -19,6 +20,7 @@ function Auth() {
     username: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -30,6 +32,7 @@ function Auth() {
 
   async function handleOnSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setIsLoading(true);
 
     if (location.pathname === "/login") {
       try {
@@ -46,6 +49,8 @@ function Auth() {
             error.response?.data.error || "An unexpected error occurred.";
           setErrorMessage(message);
         }
+      } finally {
+        setIsLoading(false);
       }
     } else if (location.pathname === "/register") {
       await httpClient.post("/auth/register", formData);
@@ -92,7 +97,11 @@ function Auth() {
             required
           />
           <button type="submit">
-            {location.pathname === "/login" ? "Login" : "Register"}
+            {!isLoading && (
+              <>{location.pathname === "/login" ? "Login" : "Register"}</>
+            )}
+
+            {isLoading && <BeatLoader color="#ffffff" size={10} />}
           </button>
 
           {errorMessage && <p className="error-message">{errorMessage}</p>}

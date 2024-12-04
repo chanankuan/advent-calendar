@@ -7,6 +7,7 @@ import { ICalendar, INote } from "../../types/types";
 import Modal from "../Modal/Modal";
 import { getCalendarUrl } from "../../helpers/getCalendarUrl";
 import { handleAxiosError } from "../../helpers";
+import { BeatLoader } from "react-spinners";
 
 interface FormData {
   title: string;
@@ -46,6 +47,7 @@ const initialData: FormData = {
 function CreateCalendar() {
   const [formData, setFormData] = useState<FormData>(initialData);
   const [calendarUrl, setCalendarUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -66,6 +68,7 @@ function CreateCalendar() {
 
   async function handleOnSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
       const response: AxiosResponse<ICalendar> = await httpClient.post(
@@ -77,6 +80,8 @@ function CreateCalendar() {
       setCalendarUrl(getCalendarUrl(calendar.access_token));
     } catch (error) {
       handleAxiosError(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -116,7 +121,7 @@ function CreateCalendar() {
         })}
 
         <button type="submit" className="submit-button">
-          Submit Calendar
+          {isLoading ? <BeatLoader color="#ffffff" size={10} /> : "Create"}
         </button>
       </form>
 

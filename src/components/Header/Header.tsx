@@ -7,11 +7,13 @@ import Modal from "../Modal/Modal";
 import { ICalendar } from "../../types/types";
 import { getCalendarUrl } from "../../helpers/getCalendarUrl";
 import { handleAxiosError } from "../../helpers";
+import { BeatLoader } from "react-spinners";
 
 function Header() {
   const [username, setUsername] = useState("");
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [calendars, setCalendars] = useState<ICalendar[]>([]);
 
   const location = useLocation();
@@ -41,12 +43,15 @@ function Header() {
   }, [username, location.pathname]);
 
   async function handleLogout() {
+    setIsLoading(true);
     try {
       await httpClient.post("/auth/logout");
       navigate(0);
       navigate("/login");
     } catch (error) {
       handleAxiosError(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -97,7 +102,11 @@ function Header() {
               {isUserModalOpen && (
                 <div className="header-modal">
                   <button onClick={handleLogout} className="logout-button">
-                    Logout
+                    {isLoading ? (
+                      <BeatLoader color="#563dc7" size={10} />
+                    ) : (
+                      "Logout"
+                    )}
                   </button>
                 </div>
               )}

@@ -48,7 +48,7 @@
 
     &:hover {
       transform: scale(1.05);
-      background-color: #563dc7; /* Slightly lighter purple */
+      background-color: #563dc7;
     }
 
     &:active {
@@ -63,7 +63,7 @@
     transition: color 200ms ease;
 
     &:hover {
-      color: #785fac; /* Slightly lighter purple */
+      color: #785fac;
     }
   }
 }

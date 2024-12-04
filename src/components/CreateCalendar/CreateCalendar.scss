@@ -106,16 +106,21 @@
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
-    background-color: rgba(65, 46, 158);
+    background-color: #412e9e;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     text-align: center;
     margin-top: 15px;
-    transition: transform 200ms ease;
+    transition: transform 200ms ease, background-color 200ms ease;
 
     &:hover {
       transform: scale(1.03);
+      background-color: #563dc7;
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
   }
 }
