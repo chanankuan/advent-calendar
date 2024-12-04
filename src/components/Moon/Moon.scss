@@ -1,16 +1,17 @@
 .moon-wrapper {
   position: absolute;
-  left: 550px;
-  top: 80px;
-  width: 200px;
-  height: 200px;
+  left: 500px;
+  top: 70px;
+  width: 220px;
+  height: 220px;
   z-index: 999;
 
   .full-moon {
     position: absolute;
     width: inherit;
     height: inherit;
-    background: url("../../assets/moon.svg") no-repeat;
+    // background: url("../../assets/moon.svg") no-repeat;
+    background: url("../../assets/moon_full.png") no-repeat;
     background-size: contain;
     z-index: 999;
     opacity: 0;
@@ -25,7 +26,8 @@
     position: absolute;
     width: inherit;
     height: inherit;
-    background: url("../../assets/moon-main.svg") no-repeat;
+    // background: url("../../assets/moon-main.svg") no-repeat;
+    background: url("../../assets/moon_half.png") no-repeat;
     background-size: contain;
     z-index: 998;
   }
