@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import dotenvConfig from "../../dotenvConfig";
+import httpClient from "../../httpClient";
 
 import "./Calendar.css";
 import Snowfall from "react-snowfall";
@@ -59,8 +59,8 @@ function Calendar() {
 
     if (token) {
       try {
-        const response = await axios.post(
-          `${BACKEND_URL}/calendar/${token}/notes/${id}`
+        const response = await httpClient.post(
+          `/calendars/${token}/notes/${id}`
         );
 
         setActiveNote(response.data.description);
@@ -99,7 +99,9 @@ function Calendar() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(`${BACKEND_URL}/calendar/${token}`);
+        const response = await httpClient.get(
+          `${BACKEND_URL}/calendars/${token}`
+        );
 
         if (response.data === "Not found") {
           navigate("/not-found", { replace: true });
