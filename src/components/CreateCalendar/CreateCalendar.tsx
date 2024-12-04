@@ -74,6 +74,7 @@ function CreateCalendar() {
       const calendar = response.data;
 
       setCalendarUrl(getCalendarUrl(calendar.access_token));
+      console.log();
     } catch (error) {
       console.log(error);
     }
