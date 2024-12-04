@@ -53,7 +53,7 @@ function Auth() {
   }
 
   return (
-    <div>
+    <div style={{ height: "100%", width: "100%" }}>
       <Calendar />
       <div className="auth-backdrop">
         <form className="form" onSubmit={handleOnSubmit}>
