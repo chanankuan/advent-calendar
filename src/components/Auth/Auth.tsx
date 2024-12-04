@@ -2,7 +2,7 @@ import "./Auth.scss";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Calendar from "../Calendar/Calendar";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import httpClient from "../../httpClient";
 
@@ -51,6 +51,14 @@ function Auth() {
       await httpClient.post("/auth/register", formData);
     }
   }
+
+  useEffect(() => {
+    if (location.pathname.startsWith("/login")) {
+      document.title = "Advent Calendar - Login";
+    } else if (location.pathname.startsWith("/register")) {
+      document.title = "Advent Calendar - Register";
+    }
+  }, [location.pathname]);
 
   return (
     <div style={{ height: "100%", width: "100%" }}>

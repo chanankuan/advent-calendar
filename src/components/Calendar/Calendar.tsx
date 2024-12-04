@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
-import dotenvConfig from "../../dotenvConfig";
 import httpClient from "../../httpClient";
 
 import "./Calendar.css";
@@ -32,7 +31,6 @@ function Calendar() {
   const [activeNote, setActiveNote] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const { BACKEND_URL } = dotenvConfig;
   const params = useParams();
 
   async function handleOnHouseClick(id: number) {
@@ -91,7 +89,6 @@ function Calendar() {
   }
 
   function handleCloseModal() {
-    // setHouseId(null);
     setActiveNote(null);
     setIsModalActive(false);
   }
@@ -99,9 +96,7 @@ function Calendar() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await httpClient.get(
-          `${BACKEND_URL}/calendars/${token}`
-        );
+        const response = await httpClient.get(`/calendars/${token}`);
 
         if (response.data === "Not found") {
           navigate("/not-found", { replace: true });
@@ -118,7 +113,11 @@ function Calendar() {
     if (token) {
       fetchData();
     }
-  }, [BACKEND_URL, params.access_token, navigate]);
+  }, [params.access_token, navigate]);
+
+  useEffect(() => {
+    document.title = calendar?.title ?? "";
+  }, [calendar?.title]);
 
   return (
     <div className="canvas-backdrop">
