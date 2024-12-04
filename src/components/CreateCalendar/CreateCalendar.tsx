@@ -1,8 +1,11 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import axios, { AxiosResponse } from "axios";
-import dotenvConfig from "../../dotenvConfig";
 import "./CreateCalendar.scss";
+
+import { ChangeEvent, FormEvent, useState } from "react";
+import { AxiosResponse } from "axios";
+import httpClient from "../../httpClient";
 import { ICalendar, INote } from "../../types/types";
+import Modal from "../Modal/Modal";
+import { getCalendarUrl } from "../../helpers/getCalendarUrl";
 
 interface FormData {
   title: string;
@@ -41,8 +44,7 @@ const initialData: FormData = {
 
 function CreateCalendar() {
   const [formData, setFormData] = useState<FormData>(initialData);
-
-  const { BACKEND_URL } = dotenvConfig;
+  const [calendarUrl, setCalendarUrl] = useState("");
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -65,18 +67,24 @@ function CreateCalendar() {
     event.preventDefault();
 
     try {
-      const response: AxiosResponse<ICalendar> = await axios.post(
-        `${BACKEND_URL}/calendar`,
+      const response: AxiosResponse<ICalendar> = await httpClient.post(
+        "/calendar",
         formData
       );
       const calendar = response.data;
 
-      const url = `http://localhost:5173/advent-calendar/${calendar.access_token}`;
-    } catch (error) {}
+      setCalendarUrl(getCalendarUrl(calendar.access_token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function handleOnCloseModal() {
+    setCalendarUrl("");
   }
 
   return (
-    <div className="backdrop calendar-backdrop">
+    <div className="calendar-backdrop">
       <form onSubmit={handleOnSubmit}>
         <h1 className="form-title">Create Your Advent Calendar</h1>
         <input
@@ -97,7 +105,7 @@ function CreateCalendar() {
               <input
                 type="text"
                 name={`${id}`}
-                id={`day-${1}`}
+                id={`day-${id}`}
                 placeholder="Your wish"
                 value={formData.notes[i]?.description ?? ""}
                 onChange={handleOnChange}
@@ -110,6 +118,21 @@ function CreateCalendar() {
           Submit Calendar
         </button>
       </form>
+
+      {calendarUrl && (
+        <Modal onCloseModal={handleOnCloseModal}>
+          <h2 style={{ fontFamily: "Brandon Grotesque", fontSize: 48 }}>
+            You just created your Advent Calendar
+          </h2>
+          <p style={{ fontFamily: "Brandon Grotesque" }}>
+            Follow this{" "}
+            <a style={{ color: "#412e9e" }} href={calendarUrl} target="_blank">
+              link
+            </a>{" "}
+            to open
+          </p>
+        </Modal>
+      )}
     </div>
   );
 }
