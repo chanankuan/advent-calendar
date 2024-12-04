@@ -15,3 +15,7 @@ export interface IUser {
   name: string;
   username: string;
 }
+
+export interface IMe {
+  name: string;
+}
