@@ -1,10 +1,14 @@
 .header {
-  background-color: rgba(65, 46, 158, 0.8);
-  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: rgb(104, 87, 181);
+  padding: 20px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
 
   .header-container {
     width: 100%;
@@ -17,6 +21,7 @@
 
   .logo {
     font-size: 24px;
+    line-height: 150%;
     font-weight: bold;
     color: #fff;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
@@ -29,10 +34,10 @@
 
     .nav-link {
       color: #fff;
-      text-decoration: none;
       font-size: 16px;
       transition: color 200ms ease;
       background-color: transparent;
+      padding: 10px;
       border: none;
       cursor: pointer;
 
@@ -72,13 +77,13 @@
         color: #333;
         border: 1px solid #ccc;
         border-radius: 5px;
-        padding: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         z-index: 999;
 
         .logout-button {
           background: none;
           border: none;
+          padding: 10px;
           color: #412e9e;
           font-weight: bold;
           cursor: pointer;
@@ -89,6 +94,19 @@
           }
         }
       }
+    }
+  }
+
+  .calendar-list {
+    display: flex;
+    gap: 20px;
+
+    h3 {
+      font-size: 24px;
+    }
+
+    a {
+      font-size: 24px;
     }
   }
 }

@@ -112,7 +112,6 @@
 
 .smoke {
   position: absolute;
-  left: -10px;
   bottom: -25px;
   width: 100px;
   height: 100px;
@@ -127,7 +126,7 @@
 }
 
 .smoke-2 {
-  left: 0;
+  left: -10px;
   background: url("../../../assets/smoke-2.svg") no-repeat;
   background-size: contain;
 }
