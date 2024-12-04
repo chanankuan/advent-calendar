@@ -1,10 +1,10 @@
 import "./Auth.scss";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Calendar from "../Calendar/Calendar";
 import { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
-import dotenvConfig from "../../dotenvConfig";
+import httpClient from "../../httpClient";
 
 interface FormData {
   name: string;
@@ -13,14 +13,14 @@ interface FormData {
 }
 
 function Auth() {
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState<FormData>({
     name: "",
     username: "",
     password: "",
   });
   const location = useLocation();
-
-  const { BACKEND_URL } = dotenvConfig;
+  const navigate = useNavigate();
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -32,11 +32,23 @@ function Auth() {
     event.preventDefault();
 
     if (location.pathname === "/login") {
-      const data = { username: formData.username, password: formData.password };
+      try {
+        const data = {
+          username: formData.username,
+          password: formData.password,
+        };
 
-      await axios.post(`${BACKEND_URL}/auth/login`, data);
+        await httpClient.post("/auth/login", data);
+        navigate("/");
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          const message =
+            error.response?.data.error || "An unexpected error occurred.";
+          setErrorMessage(message);
+        }
+      }
     } else if (location.pathname === "/register") {
-      await axios.post(`${BACKEND_URL}/auth/register`, formData);
+      await httpClient.post("/auth/register", formData);
     }
   }
 
@@ -74,6 +86,8 @@ function Auth() {
           <button type="submit">
             {location.pathname === "/login" ? "Login" : "Register"}
           </button>
+
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
 
           {location.pathname === "/login" ? (
             <Link className="link" to="/register">
