@@ -1,12 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import axios, { AxiosResponse } from "axios";
-import dotenvConfig from "../dotenvConfig";
-import type { IUser } from "../types/types";
 import httpClient from "../httpClient";
-
-// Set default `withCredentials` to true
-axios.defaults.withCredentials = true;
 
 interface PrivateRouteProps {
   component: ReactElement;
@@ -17,30 +11,22 @@ export function PrivateRoute({
   component: Component,
   redirectTo = "/",
 }: PrivateRouteProps) {
-  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchMe() {
-      const { BACKEND_URL } = dotenvConfig;
-
-      const response: AxiosResponse<IUser> = await httpClient.get(
-        `${BACKEND_URL}/auth/me`,
-        { withCredentials: true }
-      );
-
-      console.log("user", response.data);
+      try {
+        await httpClient.get("/auth/me");
+        setIsLoading(false);
+      } catch {
+        setIsAuthorized(false);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
-    try {
-      fetchMe();
-      setIsAuthorized(true);
-      setIsLoading(false);
-    } catch {
-      console.log("Unauthorized");
-    } finally {
-      setIsLoading(false);
-    }
+    fetchMe();
   }, []);
 
   if (isLoading) {
