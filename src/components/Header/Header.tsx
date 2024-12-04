@@ -1,20 +1,38 @@
 import "./Header.scss";
 
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import dotenvConfig from "../../dotenvConfig";
+import httpClient from "../../httpClient";
+import Modal from "../Modal/Modal";
+import { ICalendar } from "../../types/types";
+import { getCalendarUrl } from "../../helpers/getCalendarUrl";
 
 const { BACKEND_URL } = dotenvConfig;
 
 function Header() {
   const [username, setUsername] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isUserModalOpen, setIsUserModalOpen] = useState(false);
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+  const [calendars, setCalendars] = useState<ICalendar[]>([]);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  async function handleOpenViewModal() {
+    try {
+      const response = await httpClient.get("/calendars");
+      setCalendars(response.data);
+      setIsViewModalOpen(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     async function fetchMe() {
       try {
-        const response = await axios.get(`${BACKEND_URL}/auth/me`);
+        const response = await httpClient.get(`${BACKEND_URL}/auth/me`);
         setUsername(response.data.username);
       } catch (error) {
         console.log(error);
@@ -22,25 +40,41 @@ function Header() {
     }
 
     fetchMe();
-  }, []);
+  }, [username, location.pathname]);
 
   async function handleLogout() {
     try {
-      await axios.post(`${BACKEND_URL}/auth/logout`);
+      await httpClient.post(`${BACKEND_URL}/auth/logout`);
+      navigate(0);
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
   }
 
   return (
-    <header className="header">
+    <header
+      className="header"
+      style={{
+        display: location.pathname.startsWith("/advent-calendar/")
+          ? "none"
+          : undefined,
+      }}
+    >
       <div className="header-container">
-        <h1 className="logo">Advent Calendar</h1>
+        <Link to="/" className="logo">
+          Advent Calendar
+        </Link>
         <nav className="nav">
           {username ? (
-            <Link to="/advent-calendar" className="nav-link">
-              Create your calendar
-            </Link>
+            <>
+              <button className="nav-link" onClick={handleOpenViewModal}>
+                View my calendars
+              </button>
+              <Link to="/advent-calendar" className="nav-link">
+                Create your calendar
+              </Link>
+            </>
           ) : (
             <>
               <Link to="/login" className="nav-link">
@@ -57,12 +91,12 @@ function Header() {
               <button
                 className="username-button"
                 onClick={() =>
-                  setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen)
+                  setIsUserModalOpen((prevIsModalOpen) => !prevIsModalOpen)
                 }
               >
                 {username}
               </button>
-              {isModalOpen && (
+              {isUserModalOpen && (
                 <div className="header-modal">
                   <button onClick={handleLogout} className="logout-button">
                     Logout
@@ -73,6 +107,21 @@ function Header() {
           )}
         </nav>
       </div>
+
+      {isViewModalOpen && (
+        <Modal onCloseModal={() => setIsViewModalOpen(false)}>
+          <ul>
+            {calendars.map(({ title, access_token }) => (
+              <li key={access_token} className="calendar-list">
+                <h3>{title}</h3>
+                <a href={getCalendarUrl(access_token)} target="_black">
+                  Link
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Modal>
+      )}
     </header>
   );
 }
