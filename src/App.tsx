@@ -23,17 +23,17 @@ function App() {
             <PublicRoute component={<Auth />} redirectTo="/advent-calendar" />
           }
         />
+        {/* <Route path="login" element={<Auth />} /> */}
         <Route
           path="advent-calendar"
           element={
             <PrivateRoute component={<CreateCalendar />} redirectTo="/login" />
           }
         />
+        <Route path="/advent-calendar/:access_token" element={<Calendar />} />
       </Route>
 
-      <Route path="/advent-calendar/:access_token" element={<Calendar />} />
-      <Route path="/not-found" element={<Calendar />} />
-      <Route path="*" element={<Navigate to="not-found" />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }
