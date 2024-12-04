@@ -2,13 +2,10 @@ import "./Header.scss";
 
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import dotenvConfig from "../../dotenvConfig";
 import httpClient from "../../httpClient";
 import Modal from "../Modal/Modal";
 import { ICalendar } from "../../types/types";
 import { getCalendarUrl } from "../../helpers/getCalendarUrl";
-
-const { BACKEND_URL } = dotenvConfig;
 
 function Header() {
   const [username, setUsername] = useState("");
@@ -32,7 +29,7 @@ function Header() {
   useEffect(() => {
     async function fetchMe() {
       try {
-        const response = await httpClient.get(`${BACKEND_URL}/auth/me`);
+        const response = await httpClient.get("/auth/me");
         setUsername(response.data.username);
       } catch (error) {
         console.log(error);
@@ -44,7 +41,7 @@ function Header() {
 
   async function handleLogout() {
     try {
-      await httpClient.post(`${BACKEND_URL}/auth/logout`);
+      await httpClient.post("/auth/logout");
       navigate(0);
       navigate("/login");
     } catch (error) {
