@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import httpClient from "../../httpClient";
 
 import "./Calendar.css";
@@ -14,6 +15,7 @@ import Blur from "../Blur/Blur";
 import Modal from "../Modal/Modal";
 import { ICalendar } from "../../types/types";
 import Lights from "../Lights/Lights";
+import { handleAxiosError } from "../../helpers";
 
 const adventCalendarResponses = [
   "Oops, no peeking! That date isn't ready yet—it's a surprise for later!",
@@ -83,7 +85,7 @@ function Calendar() {
           };
         });
       } catch (error) {
-        console.log(error);
+        handleAxiosError(error);
       }
     }
   }
@@ -105,7 +107,7 @@ function Calendar() {
 
         setCalendar(response.data);
       } catch (error) {
-        console.log(error);
+        handleAxiosError(error);
       }
     }
 
@@ -158,6 +160,8 @@ function Calendar() {
       {isModalActive && (
         <Modal onCloseModal={handleCloseModal}>{activeNote}</Modal>
       )}
+
+      <ToastContainer />
     </div>
   );
 }

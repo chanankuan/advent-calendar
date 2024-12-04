@@ -6,6 +6,7 @@ import httpClient from "../../httpClient";
 import Modal from "../Modal/Modal";
 import { ICalendar } from "../../types/types";
 import { getCalendarUrl } from "../../helpers/getCalendarUrl";
+import { handleAxiosError } from "../../helpers";
 
 function Header() {
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ function Header() {
       setCalendars(response.data);
       setIsViewModalOpen(true);
     } catch (error) {
-      console.log(error);
+      handleAxiosError(error);
     }
   }
 
@@ -32,7 +33,7 @@ function Header() {
         const response = await httpClient.get("/auth/me");
         setUsername(response.data.username);
       } catch (error) {
-        console.log(error);
+        handleAxiosError(error);
       }
     }
 
@@ -45,7 +46,7 @@ function Header() {
       navigate(0);
       navigate("/login");
     } catch (error) {
-      console.log(error);
+      handleAxiosError(error);
     }
   }
 

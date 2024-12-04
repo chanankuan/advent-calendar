@@ -6,6 +6,7 @@ import httpClient from "../../httpClient";
 import { ICalendar, INote } from "../../types/types";
 import Modal from "../Modal/Modal";
 import { getCalendarUrl } from "../../helpers/getCalendarUrl";
+import { handleAxiosError } from "../../helpers";
 
 interface FormData {
   title: string;
@@ -75,7 +76,7 @@ function CreateCalendar() {
 
       setCalendarUrl(getCalendarUrl(calendar.access_token));
     } catch (error) {
-      console.log(error);
+      handleAxiosError(error);
     }
   }
 
