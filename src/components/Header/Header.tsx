@@ -32,8 +32,8 @@ function Header() {
       try {
         const response = await httpClient.get("/auth/me");
         setUsername(response.data.username);
-      } catch (error) {
-        handleAxiosError(error);
+      } catch {
+        return;
       }
     }
 
