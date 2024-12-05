@@ -72,7 +72,7 @@ function CreateCalendar() {
 
     try {
       const response: AxiosResponse<ICalendar> = await httpClient.post(
-        "/calendar",
+        "/calendars",
         formData
       );
       const calendar = response.data;
