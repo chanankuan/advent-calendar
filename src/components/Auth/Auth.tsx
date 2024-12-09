@@ -42,6 +42,7 @@ function Auth() {
         };
 
         await httpClient.post("/auth/login", data);
+        localStorage.setItem("username", data.username);
         navigate("/");
       } catch (error) {
         if (axios.isAxiosError(error)) {
@@ -91,6 +92,7 @@ function Auth() {
           <input
             type="password"
             name="password"
+            autoComplete="None"
             placeholder="password"
             value={formData.password}
             onChange={handleOnChange}

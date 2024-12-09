@@ -10,7 +10,9 @@ import { handleAxiosError } from "../../helpers";
 import { BeatLoader } from "react-spinners";
 
 function Header() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState<string | null>(
+    localStorage.getItem("username") ?? null
+  );
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,13 +42,14 @@ function Header() {
     }
 
     fetchMe();
-  }, [username, location.pathname]);
+  });
 
   async function handleLogout() {
     setIsLoading(true);
     try {
       await httpClient.post("/auth/logout");
-      navigate(0);
+      localStorage.removeItem("username");
+      setIsUserModalOpen(false);
       navigate("/login");
     } catch (error) {
       handleAxiosError(error);
