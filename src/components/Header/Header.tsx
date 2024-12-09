@@ -41,10 +41,10 @@ function Header() {
       }
     }
 
-    const username = localStorage.getItem("username");
-    if (!username) {
-      fetchMe();
-    }
+    // const username = localStorage.getItem("username");
+    // if (!username) {
+    fetchMe();
+    // }
   }, []);
 
   async function handleLogout() {
