@@ -41,8 +41,11 @@ function Header() {
       }
     }
 
-    fetchMe();
-  });
+    const username = localStorage.getItem("username");
+    if (!username) {
+      fetchMe();
+    }
+  }, []);
 
   async function handleLogout() {
     setIsLoading(true);
