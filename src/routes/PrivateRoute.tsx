@@ -1,6 +1,7 @@
 import { ReactElement, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import httpClient from "../httpClient";
+import Loader from "../components/Loader/Loader";
 
 interface PrivateRouteProps {
   component: ReactElement;
@@ -30,7 +31,7 @@ export function PrivateRoute({
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return isAuthorized ? Component : <Navigate to={redirectTo} />;

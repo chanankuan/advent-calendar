@@ -1,6 +1,7 @@
 import { ReactElement, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import httpClient from "../httpClient";
+import Loader from "../components/Loader/Loader";
 
 interface PublicRouteProps {
   component: ReactElement;
@@ -32,7 +33,7 @@ export function PublicRoute({
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return isAuthorized ? <Navigate to={redirectTo} /> : Component;
