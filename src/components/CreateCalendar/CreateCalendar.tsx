@@ -9,6 +9,7 @@ import { getCalendarUrl } from "../../helpers/getCalendarUrl";
 import { handleAxiosError } from "../../helpers";
 import { BeatLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 interface FormData {
   title: string;
@@ -70,6 +71,19 @@ function CreateCalendar() {
 
   async function handleOnSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (!formData.title) {
+      toast.error("Please provide title.");
+      return;
+    }
+
+    for (const note of formData.notes) {
+      if (!note || !note.description || !note.day) {
+        toast.error("Please provide wishes.");
+        return;
+      }
+    }
+
     setIsLoading(true);
 
     try {
