@@ -1,8 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router";
 import Calendar from "./components/Calendar/Calendar";
-import { PrivateRoute } from "./routes/PrivateRoute";
-import { PublicRoute } from "./routes/PublicRoute";
+import { PrivateRoute, PublicRoute } from "./routes";
 import Loader from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 
