@@ -116,7 +116,7 @@ function Header() {
             {calendars.map(({ title, access_token }) => (
               <li key={access_token} className="calendar-list">
                 <h3>{title}</h3>
-                <a href={getCalendarUrl(access_token)} target="_black">
+                <a href={getCalendarUrl(access_token)} target="_blank">
                   Link
                 </a>
               </li>
