@@ -20,21 +20,11 @@ function App() {
             <Route index element={<Calendar />} />
             <Route
               path="login"
-              element={
-                <PublicRoute
-                  component={<Auth />}
-                  redirectTo="/advent-calendar"
-                />
-              }
+              element={<PublicRoute component={<Auth />} redirectTo="/" />}
             />
             <Route
               path="register"
-              element={
-                <PublicRoute
-                  component={<Auth />}
-                  redirectTo="/advent-calendar"
-                />
-              }
+              element={<PublicRoute component={<Auth />} redirectTo="/" />}
             />
             {/* <Route path="login" element={<Auth />} /> */}
             <Route
