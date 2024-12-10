@@ -7,6 +7,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import httpClient from "../../httpClient";
 import { useAuthContext } from "../../hooks";
+import { toast } from "react-toastify";
 
 interface FormData {
   name: string;
@@ -14,13 +15,15 @@ interface FormData {
   password: string;
 }
 
+const initialFormData: FormData = {
+  name: "",
+  username: "",
+  password: "",
+};
+
 function Auth() {
   const [errorMessage, setErrorMessage] = useState("");
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    username: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isLoading, setIsLoading] = useState(false);
   const { setIsLogged, setUsername } = useAuthContext();
   const location = useLocation();
@@ -37,6 +40,8 @@ function Auth() {
     setIsLoading(true);
 
     if (location.pathname === "/login") {
+      setFormData(initialFormData);
+
       try {
         const data = {
           username: formData.username,
@@ -44,6 +49,7 @@ function Auth() {
         };
 
         await httpClient.post("/auth/login", data);
+        toast.success("You are successfully logged in.");
         setIsLogged(true);
         setUsername(data.username);
         navigate("/");
@@ -57,7 +63,22 @@ function Auth() {
         setIsLoading(false);
       }
     } else if (location.pathname === "/register") {
-      await httpClient.post("/auth/register", formData);
+      setFormData(initialFormData);
+
+      try {
+        await httpClient.post("/auth/register", formData);
+        toast.success("You are successfully registered.");
+        navigate("/login");
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          const message =
+            error.response?.data.error || "An unexpected error occurred.";
+          setErrorMessage(message);
+          setFormData(initialFormData);
+        }
+      } finally {
+        setIsLoading(false);
+      }
     }
   }
 
