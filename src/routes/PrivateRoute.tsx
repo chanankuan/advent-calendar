@@ -1,7 +1,8 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import httpClient from "../httpClient";
 import Loader from "../components/Loader/Loader";
+import { useAuthContext } from "../hooks";
 
 interface PrivateRouteProps {
   component: ReactElement;
@@ -12,27 +13,25 @@ export function PrivateRoute({
   component: Component,
   redirectTo = "/",
 }: PrivateRouteProps) {
-  const [isAuthorized, setIsAuthorized] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const { isLogged, isAuthLoading, setIsLogged } = useAuthContext();
 
   useEffect(() => {
-    async function fetchMe() {
+    const revalidateSession = async () => {
       try {
+        // Backend call to check session validity
         await httpClient.get("/auth/me");
-        setIsLoading(false);
+        setIsLogged(true);
       } catch {
-        setIsAuthorized(false);
-      } finally {
-        setIsLoading(false);
+        setIsLogged(false);
       }
-    }
+    };
 
-    fetchMe();
-  }, []);
+    revalidateSession();
+  }, [setIsLogged]);
 
-  if (isLoading) {
+  if (isAuthLoading) {
     return <Loader />;
   }
 
-  return isAuthorized ? Component : <Navigate to={redirectTo} />;
+  return isLogged ? Component : <Navigate to={redirectTo} />;
 }

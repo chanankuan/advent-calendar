@@ -6,6 +6,7 @@ import Calendar from "../Calendar/Calendar";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import httpClient from "../../httpClient";
+import { useAuthContext } from "../../hooks";
 
 interface FormData {
   name: string;
@@ -21,6 +22,7 @@ function Auth() {
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const { setIsLogged, setUsername } = useAuthContext();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -42,7 +44,8 @@ function Auth() {
         };
 
         await httpClient.post("/auth/login", data);
-        localStorage.setItem("username", data.username);
+        setIsLogged(true);
+        setUsername(data.username);
         navigate("/");
       } catch (error) {
         if (axios.isAxiosError(error)) {

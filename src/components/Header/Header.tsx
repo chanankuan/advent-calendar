@@ -1,6 +1,6 @@
 import "./Header.scss";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import httpClient from "../../httpClient";
 import Modal from "../Modal/Modal";
@@ -8,15 +8,15 @@ import { ICalendar } from "../../types/types";
 import { getCalendarUrl } from "../../helpers/getCalendarUrl";
 import { handleAxiosError } from "../../helpers";
 import { BeatLoader } from "react-spinners";
+import { useAuthContext } from "../../hooks";
 
 function Header() {
-  const [username, setUsername] = useState<string | null>(
-    localStorage.getItem("username") ?? null
-  );
   const [isUserModalOpen, setIsUserModalOpen] = useState(false);
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [calendars, setCalendars] = useState<ICalendar[]>([]);
+  const { isLogged, setIsLogged, username, setUsername, isAuthLoading } =
+    useAuthContext();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -31,27 +31,12 @@ function Header() {
     }
   }
 
-  useEffect(() => {
-    async function fetchMe() {
-      try {
-        const response = await httpClient.get("/auth/me");
-        setUsername(response.data.username);
-      } catch {
-        return;
-      }
-    }
-
-    // const username = localStorage.getItem("username");
-    // if (!username) {
-    fetchMe();
-    // }
-  }, []);
-
   async function handleLogout() {
     setIsLoading(true);
     try {
       await httpClient.post("/auth/logout");
-      localStorage.removeItem("username");
+      setIsLogged(false);
+      setUsername("");
       setIsUserModalOpen(false);
       navigate("/login");
     } catch (error) {
@@ -75,23 +60,27 @@ function Header() {
           Advent Calendar
         </Link>
         <nav className="nav">
-          {username ? (
+          {!isAuthLoading && (
             <>
-              <button className="nav-link" onClick={handleOpenViewModal}>
-                View my calendars
-              </button>
-              <Link to="/advent-calendar" className="nav-link">
-                Create your calendar
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link to="/login" className="nav-link">
-                Login
-              </Link>
-              <Link to="/register" className="nav-link">
-                Register
-              </Link>
+              {isLogged ? (
+                <>
+                  <button className="nav-link" onClick={handleOpenViewModal}>
+                    View my calendars
+                  </button>
+                  <Link to="/advent-calendar" className="nav-link">
+                    Create your calendar
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                  <Link to="/register" className="nav-link">
+                    Register
+                  </Link>
+                </>
+              )}
             </>
           )}
 
