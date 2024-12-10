@@ -8,6 +8,7 @@ import Modal from "../Modal/Modal";
 import { getCalendarUrl } from "../../helpers/getCalendarUrl";
 import { handleAxiosError } from "../../helpers";
 import { BeatLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   title: string;
@@ -48,6 +49,7 @@ function CreateCalendar() {
   const [formData, setFormData] = useState<FormData>(initialData);
   const [calendarUrl, setCalendarUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -87,6 +89,7 @@ function CreateCalendar() {
 
   function handleOnCloseModal() {
     setCalendarUrl("");
+    navigate("/");
   }
 
   return (
@@ -128,10 +131,10 @@ function CreateCalendar() {
       {calendarUrl && (
         <Modal onCloseModal={handleOnCloseModal}>
           <h2 style={{ fontFamily: "Brandon Grotesque", fontSize: 48 }}>
-            You just created your Advent Calendar
+            Congratulations!
           </h2>
           <p style={{ fontFamily: "Brandon Grotesque" }}>
-            Follow this{" "}
+            You just created your Advent Calendar. You may follow this{" "}
             <a style={{ color: "#412e9e" }} href={calendarUrl} target="_blank">
               link
             </a>{" "}
