@@ -111,3 +111,31 @@
     }
   }
 }
+
+.view-calendar-table {
+  font-family: unset;
+
+  th {
+    font-size: 24px;
+    text-align: start;
+    padding: 10px;
+  }
+
+  td {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  a {
+    display: flex;
+    transition: transform 200ms ease-in-out;
+  }
+
+  a:hover {
+    transform: scale(1.15);
+  }
+
+  a:focus {
+    transform: scale(1);
+  }
+}

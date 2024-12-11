@@ -112,16 +112,48 @@ function Header() {
 
       {isViewModalOpen && (
         <Modal onCloseModal={() => setIsViewModalOpen(false)}>
-          <ul>
-            {calendars.map(({ title, access_token }) => (
-              <li key={access_token} className="calendar-list">
-                <h3>{title}</h3>
-                <a href={getCalendarUrl(access_token)} target="_blank">
-                  Link
-                </a>
-              </li>
-            ))}
-          </ul>
+          {calendars.length === 0 ? (
+            <p>
+              🎄 No calendars yet! 🎅{" "}
+              <Link
+                to="/advent-calendar"
+                onClick={() => setIsViewModalOpen(false)}
+              >
+                Click here to create one and spread the holiday cheer!
+              </Link>{" "}
+              🎁
+            </p>
+          ) : (
+            <table className="view-calendar-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                {calendars.map(({ title, access_token }) => (
+                  <tr key={access_token}>
+                    <td>{title}</td>
+                    <td>
+                      <a
+                        href={getCalendarUrl(access_token)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          width={60}
+                          height={60}
+                          src="/src/assets/advent-icon.svg"
+                          alt="Advent calendar icon"
+                        />
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </Modal>
       )}
     </header>
